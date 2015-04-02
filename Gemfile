@@ -8,6 +8,7 @@ gem "scss-lint", "~>0.33.0"
 gem "middleman", "~>3.3.8"
 
 gem "middleman-deploy"
+gem "middleman-gh-pages"
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"

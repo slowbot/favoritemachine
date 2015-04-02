@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.9)
+    activesupport (4.1.10)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -32,7 +32,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.4.0)
-    ffi (1.9.6)
+    ffi (1.9.8)
     haml (4.0.6)
       tilt
     hike (1.2.3)
@@ -43,8 +43,8 @@ GEM
     i18n (0.7.0)
     json (1.8.2)
     kramdown (1.6.0)
-    listen (2.8.6)
-      celluloid (>= 0.15.2)
+    listen (2.10.0)
+      celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     middleman (3.3.10)
@@ -74,6 +74,8 @@ GEM
       middleman-core (>= 3.2)
       net-sftp
       ptools
+    middleman-gh-pages (0.0.3)
+      rake (> 0.9.3)
     middleman-livereload (3.1.1)
       em-websocket (>= 0.2.0)
       middleman-core (>= 3.0.2)
@@ -102,6 +104,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rainbow (2.0.0)
+    rake (10.4.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -120,7 +123,7 @@ GEM
       sprockets (~> 2.0)
       tilt (~> 1.1)
     thor (0.19.1)
-    thread_safe (0.3.4)
+    thread_safe (0.3.5)
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
@@ -138,6 +141,7 @@ DEPENDENCIES
   compass (~> 1.0.3)
   middleman (~> 3.3.8)
   middleman-deploy
+  middleman-gh-pages
   middleman-livereload (~> 3.1.0)
   sass (~> 3.4.1)
   scss-lint (~> 0.33.0)
