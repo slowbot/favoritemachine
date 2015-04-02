@@ -95,21 +95,30 @@ configure :build do
   # activate :asset_hash
 
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
 
 # Middleman-deploy Gem settings (https://github.com/tvaughan/middleman-deploy):
-activate :deploy do |deploy|
-  deploy.method   = :rsync
-  deploy.host     = "mistermachineshop.com"
-  deploy.path     = "/var/www/elp-patterns"
-  deploy.user     = "root"
+  # activate :deploy do |deploy|
+  # deploy.method   = :rsync
+  # deploy.host     = "mistermachineshop.com"
+  # deploy.path     = "/var/www/elp-patterns"
+  # deploy.user     = "root"
   # Optional Settings
   # deploy.port  = 5309 # ssh port, default: 22
   # deploy.clean = true # remove orphaned files on remote host, default: false
   # deploy.flags = "-rltgoDvzO --no-p --del -e" # add custom flags, default: -avze
+# end
+
+activate :deploy do |deploy|
+  deploy.method = :git
+  # Optional Settings
+  # deploy.remote   = 'custom-remote' # remote name or git url, default: origin
+  # deploy.branch   = 'custom-branch' # default: gh-pages
+  # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
+  # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
 end
 
