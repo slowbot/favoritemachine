@@ -1,12 +1,19 @@
-source 'http://rubygems.org'
+# If you do not have OpenSSL installed, update
+# the following line to use "http://" instead
+source 'https://rubygems.org'
+gem "compass", "~>1.0.3"
+gem "sass", "~>3.4.1"
+gem "scss-lint", "~>0.33.0"
 
-gem 'middleman',              '~> 3.3.6'
-gem 'middleman-gh-pages',     '~> 0.0.2'
-gem 'middleman-livereload',   '~> 3.1.0'
-gem 'middleman-syntax',       '~> 2.0.0'
-gem 'middleman-sitemap',      '~> 0.0.13'
-gem 'middleman-autoprefixer', '~> 1.1.3'
-gem 'middleman-navtree'
-gem 'middleman-robots'
+gem "middleman", "~>3.3.8"
 
-gem 'slim',                   '~> 2.0.0'
+gem "middleman-deploy"
+
+# Live-reloading plugin
+gem "middleman-livereload", "~> 3.1.0"
+
+# For faster file watcher updates on Windows:
+gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
+
+# Windows does not come with time zone data
+gem "tzinfo-data", platforms: [:mswin, :mingw]

@@ -1,63 +1,115 @@
-activate :navtree do |options|
-  options.data_file = 'tree.yml'
-  options.source_dir = 'source' # The `source` directory we want to represent in our nav tree.
-  options.ignore_files = [
-    'sitemap.xml',
-    'robots.txt',
-    'human.txt',
-    'favicon_base.png',
-    'CNAME',
-    'index.html',
-    '404.html'
-  ]
-  options.ignore_dir = ['assets', 'views'] # An array of directories we want to ignore when building our tree.
-  options.home_title = 'Home' # The default link title of the home page (located at "/"), if otherwise not detected.
-  options.promote_files = ['index.html'] # Any files we might want to promote to the front of our navigation
-  options.ext_whitelist = [] # If you add extensions (like '.md') to this array, it builds a whitelist of filetypes for inclusion in the navtree.
-end
+###
+# Compass
+###
 
-activate :livereload
-activate :gzip
-activate :syntax
+compass_config do |config|
+    # Require any additional compass plugins here.
+    config.add_import_path "bower_components/foundation/scss"
+    
+    # Set this to the root of your project when deployed:
+    config.http_path = "/"
+    config.css_dir = "stylesheets"
+    config.sass_dir = "stylesheets"
+    config.images_dir = "images"
+    config.javascripts_dir = "javascripts"
+    
+    # You can select your preferred output style here (can be overridden via the command line):
+    # output_style = :expanded or :nested or :compact or :compressed
+    
+    # To enable relative paths to assets via compass helper functions. Uncomment:
+    # relative_assets = true
+    
+    # To disable debugging comments that display the original location of your selectors. Uncomment:
+    # line_comments = false
+    
+    
+    # If you prefer the indented syntax, you might want to regenerate this
+    # project again passing --syntax sass, or you can uncomment this:
+    # preferred_syntax = :sass
+    # and then run:
+    # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
+    
+end
 
 ###
 # Page options, layouts, aliases and proxies
 ###
 
-page "/sitemap.xml", layout: false
+# Per-page layout changes:
+#
+# With no layout
+# page "/path/to/file.html", :layout => false
+#
+# With alternative layout
+# page "/path/to/file.html", :layout => :otherlayout
+#
+# A path which all have the same layout
+# with_layout :admin do
+#   page "/admin/*"
+# end
 
-require 'slim'
-# Avoid HTML minification for people who don't know slim
-Slim::Engine.default_options[:pretty] = true
+# Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
+# proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
+#  :which_fake_page => "Rendering a fake page with a local variable" }
 
-set :js_dir, 'assets/javascripts'
-set :css_dir, 'assets/stylesheets'
-set :images_dir, 'assets/images'
+###
+# Helpers
+###
+
+# Automatic image dimensions on image_tag helper
+# activate :automatic_image_sizes
+
+# Reload the browser automatically whenever files change
+configure :development do
+    activate :livereload
+end
+
+# Methods defined in the helpers block are available in templates
+# helpers do
+#   def some_helper
+#     "Helping"
+#   end
+# end
 
 # Add bower's directory to sprockets asset path
 after_configuration do
-
-  @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
-  sprockets.append_path File.join "#{root}", @bower_config["directory"]
-
+    @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
+    sprockets.append_path File.join "#{root}", @bower_config["directory"]
 end
 
+set :css_dir, 'stylesheets'
+
+set :js_dir, 'javascripts'
+
+set :images_dir, 'images'
+
+# Build-specific configuration
 configure :build do
+  # For example, change the Compass output style for deployment
+  # activate :minify_css
 
-  activate :autoprefixer,
-    browsers: ['last 2 versions', 'ie 8', 'ie 9']
+  # Minify Javascript on build
+  # activate :minify_javascript
 
-  activate :minify_css
-  activate :minify_javascript
-  activate :asset_hash
+  # Enable cache buster
+  # activate :asset_hash
 
-  activate :relative_assets
-  set :relative_links, true
+  # Use relative URLs
+  # activate :relative_assets
 
-  activate :sitemap, hostname: data.settings.site.url
-
-  activate :robots,
-    rules: [{:user_agent => '*', :allow => %w(/)}],
-    sitemap: data.settings.site.url+'sitemap.xml'
-
+  # Or use a different image path
+  # set :http_prefix, "/Content/images/"
 end
+
+# Middleman-deploy Gem settings (https://github.com/tvaughan/middleman-deploy):
+activate :deploy do |deploy|
+  deploy.method   = :rsync
+  deploy.host     = "mistermachineshop.com"
+  deploy.path     = "/var/www/elp-patterns"
+  deploy.user     = "root"
+  # Optional Settings
+  # deploy.port  = 5309 # ssh port, default: 22
+  # deploy.clean = true # remove orphaned files on remote host, default: false
+  # deploy.flags = "-rltgoDvzO --no-p --del -e" # add custom flags, default: -avze
+end
+

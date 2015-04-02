@@ -1,0 +1,45 @@
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+
+// $BaseType
+// -------------------------------------//
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+
+$h1-font-size: rem-calc(44);
+$h2-font-size: rem-calc(37);
+$h3-font-size: rem-calc(27);
+$h4-font-size: rem-calc(23);
+$h5-font-size: rem-calc(18);
+$h6-font-size: 1rem;
+
+$font-family: "proxima-nova", "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+$base-font-family: $font-family;
+$sans-font-family: $font-family;
+$sans-font-family-semibold: "proxima-nova", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-font-family-bold: "proxima-nova", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$alt-font-family: $sans-font-family-bold;
+$serif-font-family: "freight-text-pro", "Lora", Georgia, Times, serif;
+
+// $Brand Colors
+$primary-color:     #00baff;
+$secondary-color:   #2b3848;
+$wash-color:        #efefef;
+$alert-color:       #eda92c;
+$success-color:     #0e4a77;
+
+// d. Media Query Ranges
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$small-top: 40em;
+$medium-top: 64em;
+$large-top: 90em;
+$xlarge-top: 120em;
+
+$small-range: (0em, $small-top);
+$medium-range: (40.063em, $medium-top);
+$large-range: (64.063em, $large-top);
+$xlarge-range: (90.063em, $xlarge-top);
+$xxlarge-range: (120.063em, 99999999em);
