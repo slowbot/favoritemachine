@@ -1,0 +1,31 @@
+.layout-section--inverse {
+  background-color: $oil;
+  color: $white;
+  margin: rem-calc(40 0);
+  padding: rem-calc(40 0);
+}
+
+.row-full-width {
+  max-width: 100%
+}
+
+.layout--side-nav {
+  padding: rem-calc(20);
+  ul li ul {
+    margin: 0;
+    list-style-type: none;
+  }
+  .parent-label {
+    display: block;
+    padding-top: rem-calc(20);
+    padding-bottom: rem-calc(20);
+    @extend .acolyte;
+  }
+}
+
+.layout--footer {
+  border-top: 1px solid $hr-border-color;
+  padding: rem-calc(40);
+  margin-top: rem-calc(40);
+  color: $aluminum;
+}

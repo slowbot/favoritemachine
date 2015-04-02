@@ -1,0 +1,21 @@
+{
+  "name": "foundation-boilerplate",
+  "version": "0.0.2",
+  "homepage": "https://github.com/flexbox/foundation-boilerplate",
+  "authors": [
+    "flexbox <dleuliette@gmail.com>"
+  ],
+  "description": "A starter front-end template for building responsive web apps or sites with Foundation",
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.1"
+  }
+}
