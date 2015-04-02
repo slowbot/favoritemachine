@@ -1,5 +1,5 @@
-# Pritzker Family Foundation Pattern Library
+# Favorite Machine
 
-Front end pattern library for the Pritzker Family Foundation website.
+Front end pattern library
 
 Built using Middleman
